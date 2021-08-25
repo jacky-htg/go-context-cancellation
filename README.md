@@ -5,7 +5,7 @@ Fitur ini penting baik untuk diterapkan dalam 1 service maupun interaksi antara 
 1. Menghabiskan resource server untuk hal yang sia-sia karena request sudah tidak valid.
 2. Mengurangi integritas data. Data antara client dan server tidak sama sehingga data tidak bisa jadi rujukan valid. 
 
-![Context cancellation flow](/assets/images/context-cancellation-flow.png)
+![Context cancellation flow](assets/images/context-cancellation-flow.png)
 
 Dalam tulisan ini, saya akan membahas penggunaan context dan cancel untuk mengatasi persoalan tersebut. Contoh kode akan disampaikan dalam 3 kasus : 
 
@@ -182,11 +182,11 @@ Sementara func contextError pada baris 88 sampai 97 digunakan untuk melakukan pe
 
 Kita bisa mengetes dengan melakukan pemanggilan grpc API melalui grpc client seperti wombat atau tool grpc client lainnya. Happy scenario akan menghasilkan response 50 data city, dan skenario pembatalan akan menghasilkan error : code: 1, message: "context canceled".
 
-![Unary gRPC success scenario](/asset/image/unary-grpc-success.png)
+![Unary gRPC success scenario](asset/image/unary-grpc-success.png)
 
 *(Unary gRPC dengan skenario sukses)*
 
-![Unary gRPC cancel scenario](/asset/image/unary-grpc-cancel.png)
+![Unary gRPC cancel scenario](asset/image/unary-grpc-cancel.png)
 
 *(Unary gRPC dengan skenario pembatalan)*
 
@@ -235,11 +235,11 @@ func (u *citiesServer) ListStream(in *cities.EmptyMessage, stream cities.CitiesS
 
 Sekali lagi, kita bisa mengetes dengan melakukan pemanggilan grpc API melalui grpc client seperti wombat atau tool grpc client lainnya. Happy scenario akan menghasilkan response streaming 50 data city, dan skenario pembatalan akan menghasilkan error : code: 1, message: "context canceled".
 
-![Streaming server gRPC success scenario](/asset/image/streaming-server-grpc-success.png)
+![Streaming server gRPC success scenario](asset/image/streaming-server-grpc-success.png)
 
 (Server streaming gRPC dengan skenario sukses)
 
-![Streaming server gRPC cancel scenario](/asset/image/streaming-server-grpc-success.png)
+![Streaming server gRPC cancel scenario](asset/image/streaming-server-grpc-success.png)
 
 (Unary gRPC dengan skenario pembatalan)
 
@@ -323,7 +323,7 @@ func (u *citiesServer) List(ctx context.Context, in *cities.EmptyMessage) (*citi
 
 Setelah modifikasi dengan memindahkan pengecekan error tepat sebelum return (atau tepat sebelum commit jika menggunakan transaction, karena jika hasil pengecekan ada error perlu dilakukan rollback), penanganan pembatalan request berhasil dijalankan.
 
-![Rest success scenario](/asset/image/rest-success.png)
+![Rest success scenario](asset/image/rest-success.png)
 
 (Rest API dengan skenario sukses)
 
