@@ -5,7 +5,7 @@ Fitur ini penting baik untuk diterapkan dalam 1 service maupun interaksi antara 
 1. Menghabiskan resource server untuk hal yang sia-sia karena request sudah tidak valid.
 2. Mengurangi integritas data. Data antara client dan server tidak sama sehingga data tidak bisa jadi rujukan valid. 
 
-![Context cancellation flow](asset/images/context-cancellation-flow.png)
+![Context cancellation flow](asset/image/context-cancellation-flow.png)
 
 Dalam tulisan ini, saya akan membahas penggunaan context dan cancel untuk mengatasi persoalan tersebut. Contoh kode akan disampaikan dalam 3 kasus : 
 
