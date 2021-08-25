@@ -5,7 +5,7 @@ Fitur ini penting baik untuk diterapkan dalam 1 service maupun interaksi antara 
 1. Menghabiskan resource server untuk hal yang sia-sia karena request sudah tidak valid.
 2. Mengurangi integritas data. Data antara client dan server tidak sama sehingga data tidak bisa jadi rujukan valid. 
 
-![Context cancellation flow](assets/images/context-cancellation-flow.png)
+![Context cancellation flow](asset/images/context-cancellation-flow.png)
 
 Dalam tulisan ini, saya akan membahas penggunaan context dan cancel untuk mengatasi persoalan tersebut. Contoh kode akan disampaikan dalam 3 kasus : 
 
@@ -237,11 +237,11 @@ Sekali lagi, kita bisa mengetes dengan melakukan pemanggilan grpc API melalui gr
 
 ![Streaming server gRPC success scenario](asset/image/streaming-server-grpc-success.png)
 
-(Server streaming gRPC dengan skenario sukses)
+*(Server streaming gRPC dengan skenario sukses)*
 
 ![Streaming server gRPC cancel scenario](asset/image/streaming-server-grpc-success.png)
 
-(Unary gRPC dengan skenario pembatalan)
+*(Unary gRPC dengan skenario pembatalan)*
 
 ## Rest API
 Untuk keperluan rest API kita perlu me-listen port baru dan membuat fungsi rest. Update file server.go dengan menambahkan port rest di func run(), dan memanggil routine runRestserver di func run()
@@ -325,7 +325,7 @@ Setelah modifikasi dengan memindahkan pengecekan error tepat sebelum return (ata
 
 ![Rest success scenario](asset/image/rest-success.png)
 
-(Rest API dengan skenario sukses)
+*(Rest API dengan skenario sukses)*
 
 ```
 make server
@@ -333,7 +333,7 @@ go run server.go
 2021/06/04 14:00:28 error get list city request is canceled
 ```
 
-(Rest API dengan skenario Pembatalan)
+*(Rest API dengan skenario Pembatalan)*
 
 ## gRPC Client 
 Pada prakteknya, grpc API dipanggil oleh service lain. Berikut saya contohkan bagimana client memanggil service server streaming gRPC API.
