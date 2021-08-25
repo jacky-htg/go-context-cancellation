@@ -239,7 +239,7 @@ Sekali lagi, kita bisa mengetes dengan melakukan pemanggilan grpc API melalui gr
 
 *(Server streaming gRPC dengan skenario sukses)*
 
-![Streaming server gRPC cancel scenario](asset/image/streaming-server-grpc-success.png)
+![Streaming server gRPC cancel scenario](asset/image/streaming-server-grpc-cancel.png)
 
 *(Unary gRPC dengan skenario pembatalan)*
 
