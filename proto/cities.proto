@@ -1,0 +1,24 @@
+syntax = "proto3";
+package cities;
+
+option go_package = "pb/cities;cities";
+
+message City {
+  uint32 id = 1;
+  string name = 2;
+}
+
+message EmptyMessage {}
+
+message Cities {
+  repeated City city = 1; 
+}
+
+message CityStream {
+  City city = 1;
+}
+
+service CitiesService {
+  rpc ListStream(EmptyMessage) returns (stream CityStream) {}
+  rpc List(EmptyMessage) returns (Cities) {}
+}
